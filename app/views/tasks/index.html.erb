@@ -1,0 +1,9 @@
+タスク一覧
+<ul>
+    <li>
+        <% @tasks.each do |task|%>
+        <%=link_to task.id, task%><%= task.content %>
+        <% end %>
+    </li>
+</ul>
+<%= link_to '新規タスク', new_task_path %>
