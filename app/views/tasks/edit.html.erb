@@ -1,5 +1,6 @@
 <%= form_with(model: @task, local: true)do|f|%>
-<%= f.text_field :content%>
+タスク:<%= f.text_field :content%>
+<%= render 'layouts/form' %>
 <%= f.submit '更新'%>
 <% end %>
 <%= link_to '一覧に戻る' ,tasks_path %>

@@ -1,9 +1,10 @@
-<h1>メッセージ新規作成ページ</h1>
+<h1>タスク追加ページ</h1>
 
-<%= form_with(model: @task, local: true) do |f| %>
+  <%= form_with(model: @task,local: true) do |f| %>
+    <%= render 'layouts/form' %>
+    
+    <div>課題内容<%=f.text_field :content %></div>
   
-  <%= f.text_field :content %>
-
-  <%= f.submit '投稿' %>
-<% end %>
-<%= link_to '一覧に戻る', tasks_path %>
+    <%= f.submit '投稿' %>
+  <% end %>
+  <%= link_to '一覧に戻る', tasks_path %>
