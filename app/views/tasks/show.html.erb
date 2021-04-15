@@ -1,7 +1,7 @@
 <div>
 <div>タスクid:<%= @task.id %></div>
 <div>貴方のタスク===>>>(<%= @task.content %>)</div>
-<div>タスク状況===>>>(<%= @task.Status %>)</div>
+<div>タスク状況===>>>(<%= @task.status %>)</div>
 <%= link_to '編集', edit_task_path(@task)%>
 <%= link_to '削除', @task,method: :delete,data: {confirm: '本当に削除しますか'}%>
 <%= link_to '一覧', tasks_path %>

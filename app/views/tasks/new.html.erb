@@ -1,7 +1,7 @@
 <h1>タスク追加ページ</h1>
 
   <%= form_with(model: @task,local: true) do |f| %>
-    <%= render 'layouts/form' %>
+    <div>課題状況<%= f.text_field :status %></div>
     
     <div>課題内容<%=f.text_field :content %></div>
   
