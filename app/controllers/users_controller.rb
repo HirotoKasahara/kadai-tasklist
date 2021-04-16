@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success]="登録しました"
-      redirect_to root_path
+      redirect_to root_url
     else 
       flash.now[:danger]="間違いがあります"
       render :new
