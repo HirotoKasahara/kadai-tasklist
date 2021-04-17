@@ -6,7 +6,7 @@ class TasksController < ApplicationController
         @tasks = current_user.tasks.order(id: :desc)
     end 
     def show
-        @task = Task.find(params[:id])
+        @task = current_user.tasks.find_by(id: params[:id])
     end 
     def new
         @task = Task.new
@@ -24,10 +24,10 @@ class TasksController < ApplicationController
         end 
     end 
     def edit
-        @task = Task.find(params[:id])
+        @task = current_user.tasks.find_by(id: params[:id])
     end 
     def update
-        @task = Task.find(params[:id])
+        @task = current_user.tasks.find_by(id: params[:id])
         
         if @task.update(task_params)
             flash[:success]="更新しました"
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
         end 
     end 
     def destroy
-        @task = Task.find(params[:id])
+        @task = current_user.tasks.find_by(id: params[:id])
          @task.destroy
         flash[:success]="削除しました"
         redirect_to tasks_url
