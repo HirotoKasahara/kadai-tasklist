@@ -1,1 +1,19 @@
- 
+ <%= form_with(model: @user, local: true) do |f| %>
+    <%=  render 'layouts/error_messages',task:@user %>
+      <div>
+        名前:<%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div>
+       email: <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div>
+        password:<%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div>
+        password_confirmation:<%= f.password_field :password_confirmation, class: 'form-control'%>
+      </div>
+
+      <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+    <% end %>
