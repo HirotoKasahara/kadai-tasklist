@@ -1,0 +1,12 @@
+<%= form_with(model: @task, local: true)do|f|%>
+<%= render'layouts/error_messages',task: @task %>
+<div>
+    <%= f.label :content,'タスク:'%>
+    <%= f.text_field :content%>
+</div>
+<div>
+    <%= f.label :status,'タスク状況:'%>
+    <%=f.text_field :status %>
+</div>
+<%= f.submit '更新'%>
+<% end %>

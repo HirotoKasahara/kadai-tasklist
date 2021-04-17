@@ -1,12 +1,3 @@
-<%= form_with(model: @task, local: true)do|f|%>
-<div>
-    <%= f.label :content,'タスク:'%>
-<%= f.text_field :content%>
-</div>
-<div>
-<%= f.label :status,'タスク状況:'%>
-<%=f.text_field :status %>
-</div>
-<%= f.submit '更新'%>
-<% end %>
-<%= link_to '一覧に戻る' ,tasks_path %>
+<%= render 'layouts/input_tasks',task: @task %>
+
+<%= link_to '一覧に戻る' ,root_url %>
