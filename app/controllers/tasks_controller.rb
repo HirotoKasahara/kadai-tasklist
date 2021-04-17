@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
-    
+    before_action :set_task,only: [:show,:edit,:update,:destroy]
     
     def index 
         @tasks = current_user.tasks.order(id: :desc)
     end 
     def show
-        set_task
+        
     end 
     def new
         @task = Task.new
@@ -24,10 +24,10 @@ class TasksController < ApplicationController
         end 
     end 
     def edit
-        set_task
+       
     end 
     def update
-       set_task
+       
         
         if @task.update(task_params)
             flash[:success]="更新しました"
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
         end 
     end 
     def destroy
-        set_task
+        
          @task.destroy
         flash[:success]="削除しました"
         redirect_to root_url
