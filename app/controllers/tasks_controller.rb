@@ -6,7 +6,7 @@ class TasksController < ApplicationController
         @tasks = current_user.tasks.order(id: :desc)
     end 
     def show
-        @task = current_user.tasks.find_by(id: params[:id])
+        set_task
     end 
     def new
         @task = Task.new
@@ -24,10 +24,10 @@ class TasksController < ApplicationController
         end 
     end 
     def edit
-        @task = current_user.tasks.find_by(id: params[:id])
+        set_task
     end 
     def update
-        @task = current_user.tasks.find_by(id: params[:id])
+       set_task
         
         if @task.update(task_params)
             flash[:success]="更新しました"
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
         end 
     end 
     def destroy
-        @task = current_user.tasks.find_by(id: params[:id])
+        set_task
          @task.destroy
         flash[:success]="削除しました"
         redirect_to root_url
@@ -47,5 +47,9 @@ class TasksController < ApplicationController
     private
     def task_params
         params.require(:task).permit(:content,:status)
+    end 
+    
+    def set_task
+        @task = current_user.tasks.find_by(id: params[:id])
     end 
 end
