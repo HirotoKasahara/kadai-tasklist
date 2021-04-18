@@ -52,11 +52,9 @@ class TasksController < ApplicationController
     end 
     
     def set_task?
-      if @task = current_user.tasks.find_by(id: params[:id])
-          return true
-      else 
-          flash[:danger]="###貴方のタスクではありません###"
-          redirect_to root_url
+      unless @task = current_user.tasks.find_by(id: params[:id])
+             flash[:danger]="###貴方のタスクではありません###"
+             redirect_to root_url
     end 
 end 
 end 
