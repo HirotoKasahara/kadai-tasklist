@@ -52,8 +52,9 @@ class TasksController < ApplicationController
     end 
     
     def set_task
-      unless @task = current_user.tasks.find_by(id: params[:id])
-             redirect_to root_url
-       end 
+     unless @task = current_user.tasks.find_by(id: params[:id])
+         redirect_to root_url
+     end  
+       
     end 
 end 
